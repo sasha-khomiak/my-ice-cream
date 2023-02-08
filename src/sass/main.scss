@@ -1,0 +1,32 @@
+// BASE
+@import './abstracts/mixins';
+@import './base/reset';
+@import './pages/contact';
+@import './pages/home';
+@import './base/modal-common-rules';
+
+// LAYOUT
+@import './components/animation_buttons';
+@import './components/animation_hero-icecream-image';
+@import './components/animation_titles';
+@import './components/checkbox';
+@import './components/form_validations';
+@import './components/menu';
+
+@import './layout/header';
+@import './layout/hero';
+@import './layout/сontacts';
+@import './layout/about';
+@import './layout/advantages';
+@import './layout/customer-reviews';
+@import './layout/footer';
+@import './layout/gallery';
+@import './layout/modal_buy';
+@import './layout/modal_product';
+@import './layout/modal_video';
+@import './layout/modal-franchise';
+@import './layout/products';
+@import './layout/modal_map';
+
+
+

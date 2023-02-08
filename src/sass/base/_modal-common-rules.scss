@@ -1,0 +1,155 @@
+////// ПІДЛОЖКА ЯК ОКРЕМИЙ БЛОК //////
+
+.overlay {
+  // Приховуємо підложку
+  opacity: 0;
+  visibility: hidden;
+
+  // Розташування підложки
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+////// МОДАЛЬНЕ ВІКНО //////
+
+.modal {
+  // Приховування вікна
+  opacity: 0;
+  visibility: hidden;
+
+  //  Встановоюємо розміри вікна
+  width: 100%;
+  max-height: calc(100% - 20px); //???
+  max-width: 75vw;
+  @include minW-Phone {
+    max-width: 400px;
+  }
+
+  @include minW-Tablet {
+    max-width: 568px;
+  }
+
+  overflow: auto; ///???
+
+  //  Центруємо і задаємо z-index
+
+  position: fixed; // absolute; ???
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 30; /* має бути більше ніж у підложки */
+
+  //  Інші стилі
+
+  border: 2px solid $dyellow-color;
+  border-radius: 10px;
+  background-color: $txt-white;
+
+  padding: 28px;
+
+  @include minW-Tablet {
+    padding: 32px 60px;
+  }
+
+  //транзішн переходу, як варіант
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Стилі для активних класів підложки і вікна
+
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+////// СТИЛІ ДЛЯ ЕЛЕМЕНТІВ МОДАЛЬНОГО ВІКНА //////
+
+.modal {
+  // Кнопка закриття
+
+  &__btn-close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 12px;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: $txt-black;
+  }
+
+  //Заголовок модального вікна
+
+  &__header {
+    font-family: 'Seymour One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: $txt-black;
+
+    margin-bottom: 20px;
+
+    @include minW-Tablet {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+  }
+
+  //Кнопка чи посилання
+
+  &__btn {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 114px;
+    padding: 12px 34px;
+    background-color: $dyellow-color;
+    border-radius: 10px;
+    border-width: 0;
+
+    color: $txt-black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+
+    @include minW-Tablet {
+      margin-top: 32px;
+      width: 145px;
+
+      font-size: 14px;
+      line-height: calc(17 / 14);
+    }
+
+    transition: background-color $transition;
+  }
+
+  &__btn:hover {
+    background-color: $accent-color;
+    fill: $white;
+    color: $black;
+  }
+}
