@@ -1,0 +1,39 @@
+<!-- modal-franchise -->
+<div class="modal" data-modal="1">
+  <button class="modal__btn-close js-modal-close">
+    <svg class="modalcls">
+      <use href="./images/icons.svg#icon-close-cross"></use>
+    </svg>
+  </button>
+  <h1 class="modal-franchise__header">
+    Thank you for your interest in owning an Ice Cream shop
+  </h1>
+  <p class="modal-franchise__text">
+    Due to the overwhelming volume of franchise requests we are not accepting
+    new franchisee applications at this time. Once the application process
+    resumes, we will contact you for further information. Please fill out the
+    contact information below and we will reach out for additional information.
+    We appreciate your patience.
+  </p>
+  <form class="form-franchise">
+    <label class="form-franchise__label" for="person-name"></label>
+    <input class="form-franchise__input" id="person-name" type="text" name="person-name" placeholder="Name" required
+      pattern="^[a-zA-Z]+\s[a-zA-Z]+$" title="Username must be two words separated by space." />
+
+    <label class="form-franchise__label" for="person-phone"></label>
+
+    <input class="form-franchise__input" id="person-phone" name="person-phone" placeholder="Phone" type="tel" required
+      pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" title="Format: +99(99)9999-9999" />
+
+    <label class="form-franchise__label" for="person-mail"></label>
+    <input class="form-franchise__input" id="person-mail" type="email" name="person-mail" placeholder="Email"
+      required />
+
+    <label class="form-franchise__label" for="person-coment"></label>
+    <textarea class="form-franchise__textarea" id="person-coment" name="person-comment"
+      placeholder="Comment"></textarea>
+  </form>
+  <button type="submit" class="modal__btn">Submit</button>
+</div>
+
+<div class="overlay js-overlay-modal"></div>

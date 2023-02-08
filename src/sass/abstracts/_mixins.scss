@@ -1,0 +1,120 @@
+// //* fonts
+// @mixin font($font_name, $file_name, $weight, $style) {
+//   @font-face {
+//     font-family: $font_name;
+//     font-display: swap;
+//     src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+//     font-weight: #{$weight};
+//     font-style: #{$style};
+//}
+// //@include font("Inter", "Inter-Light", "300", "normal");
+
+// //* responsive font size
+// $maxWidth: 1440;
+// $minWidth: 575;
+
+// //@include adaptive-font(44, 26); - вказуємо максимальний і мінімальний розмір шрифту
+
+// @mixin adaptive-font($pcSize, $mobSize) {
+//   $addSize: $pcSize - $mobSize;
+//   $maxWidth: $maxWidth - $minWidth;
+//   font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+// }
+
+//******/
+
+//* media
+$minphoneMax: 319px;
+$minphoneMin: 320px;
+//**/
+
+$phoneMax: 479px;
+$phoneMin: 480px;
+//******/
+$tabletMax: 767px;
+$tabletMin: 768px;
+//******/
+$desktopMax: 1199px;
+$desktopMin: 1200px;
+/**
+//* Phone
+*/
+
+@mixin maxW-minPhone {
+  @media screen and (max-width: $minphoneMax) {
+    @content;
+  }
+}
+@mixin minW-minPhone {
+  @media screen and (max-width: $minphoneMin) {
+    @content;
+  }
+}
+
+@mixin maxW-Phone {
+  @media screen and (max-width: $phoneMax) {
+    @content;
+  }
+}
+
+@mixin minW-Phone {
+  @media screen and (min-width: $phoneMin) {
+    @content;
+  }
+}
+
+/**
+//* Tablet
+*/
+
+@mixin maxW-Tablet {
+  @media screen and (max-width: $tabletMax) {
+    @content;
+  }
+}
+
+@mixin minW-Tablet {
+  @media screen and (min-width: $tabletMin) {
+    @content;
+  }
+}
+
+/**
+//* Desctop
+*/
+
+@mixin maxW-Dt {
+  @media screen and (max-width: $desktopMax) {
+    @content;
+  }
+}
+
+@mixin minW-Dt {
+  @media screen and (min-width: $desktopMin) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+/**
+//* Castom media
+// */
+
+// @mixin minW($widthValue) {
+//   @media screen and (min-width: $widthValue) {
+//     @content;
+//   }
+// }
+
+// @mixin maxW($widthValue) {
+//   @media screen and (max-width: $widthValue) {
+//     @content;
+//   }
+// }
